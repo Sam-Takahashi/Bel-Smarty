@@ -1,0 +1,666 @@
+body {
+    background: #ffffff;
+    margin: 0 !important;
+    color: #525252;
+    line-height: 1.5;
+    display: block;
+    letter-spacing: 0;
+    font-family: Arial, Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Osaka, 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic';
+    overflow-x: hidden;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+html, body, h1, h2, h3, h4, h5, h6, p, div, ul, ol, li, label, dl, dt, dd {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+html{scroll-behavior:smooth}
+
+a {
+    color: #333333;
+    text-decoration: none;
+    font-size: inherit;
+    margin: 0;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.burger {
+  display: none;
+  /* cursor: pointer changes the cursor animation(to a hand instead of an arrow) */
+  cursor: pointer;
+}
+
+.burger div {
+  width: 35px;
+  /* too much height will mess with the alignment of the transformation to X shape */
+  height: 3px;
+  background-color: rgb(134, 223, 112);
+  margin: 5px;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+}
+
+/* NAVBAR END */
+
+#container{
+    position: relative;
+    clear: both;
+    width: 100%;
+    font-size: 12px;
+}
+
+.header{
+    width: 980px;
+    height: 84px;
+    margin: 0 auto;
+    padding: 10px 0 0;
+}
+
+.header .logo {
+    float: left;
+    width: 54px;
+    /* margin-left: 10px; */
+}
+
+/* ul{
+    float: right;
+    margin: 45px 0 0;
+    z-index: 10;
+} */
+.clearfix {
+    min-height: 1px;
+}
+.clearfix {
+    zoom: 1;
+}
+ul#recipe {
+    width: 1020px;
+    margin: 0 auto;
+}
+li.down{
+    display: inline;
+    height: 18px;
+    padding: 0 14px 0 20px;
+}
+li.down a{
+    padding-bottom: 10px;
+}
+li.down::after{
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f13a";
+    color: rgb(177, 177, 177);
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+
+p.breadcrumbs{
+    clear: both;
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #eee;
+    font-size: 12px;
+    color: #666666;
+    padding: 5px 0;
+}
+p.breadcrumbs a:first-child {
+    margin-left: 120px;
+}
+
+#content {
+    position: relative;
+    width: 982px;
+    margin: 0 auto;
+}
+
+.line {
+    width: 980px;
+    margin: 20px auto;
+}
+
+.banner {
+    width: 466px;
+    margin: 20px auto 0;
+    padding: 0 0 20px;
+}
+
+/* MAIN RECIPE TEMPLATE BODY CONTENT */
+#recipe {
+    width: 982px;
+    margin: 0 auto 10px;
+}
+ul#recipe li {
+    float: left;
+    width: 300px;
+    background: url(../img/base_top.png) top left no-repeat;
+    padding: 10px;
+    margin: 0 3px 5px;
+}
+ul#recipe li.tops {
+    float: left;
+    width: 300px;
+    background: url(../img/base_pickup.png) top left no-repeat;
+    padding: 10px;
+    margin: 0 3px 5px;
+}
+ul#recipe li p {
+    font-size: 18px;
+    color: #ffffff;
+    padding: 17px 0 1px 16px;
+}
+ul#recipe li.tops p {
+  font-size: 14px;
+  line-height: 1.4em;
+  color: #999999;
+  padding: 17px 0 1px 16px;
+}
+ul#recipe li.tops p.wht {
+    padding: 8px 0 10px 16px;
+}
+#recipe #list ul li a {
+    display: block;
+    text-decoration: none;
+}
+#recipe #list ul li p {
+    font-size: 14px;
+    line-height: 1.4em;
+    padding: 10px 0 8px 10px;
+    width: 240px;
+}
+
+/* RECIPE LIST PAGE ---------------------------------------------------- */
+img {
+    border: none;
+    vertical-align: bottom;
+    line-height: 0;
+    font-size: 0;
+}
+#recipe .inner {
+    width: 980px;
+    background: #ffffff;
+    border-right: solid 1px #e2e2e2;
+    border-left: solid 1px #e2e2e2;
+    padding: 16px 0 0;
+    overflow: hidden;
+}
+#recipe .title h3 {
+    text-align: center;
+    margin: 0 0 5px;
+    font-size: 30px;
+    color: #9a8b76;
+}
+#recipe .title {
+    position: relative;
+    padding: 0 0 20px;
+    background: url(../img/gline.png) bottom center no-repeat;
+}
+#recipe .title p {
+    position: absolute;
+    bottom: 16px;
+    right: 36px;
+    text-align: right;
+    color: #9a8b75;
+    font-size: 12px;
+}
+.dot_blue{
+  color: blue;
+}
+.dot_red{
+  color: red;
+}
+.dot_green{
+  color: green;
+}
+#recipe #sidenav {
+    float: left;
+    width: 230px;
+    height: 568px;
+    padding: 8px 10px 0;
+    margin: 6px 0 10px 16px;
+    background: url(../img/sidebar.svg) top left no-repeat;
+    background-size: contain;
+}
+
+/* main content */
+#recipe h2 {
+    width: 982px;
+}
+#recipe #list ul li {
+    float: left;
+    width: 300px;
+    background: url(../img/base_recipe.png) top left no-repeat;
+    height: 218px;
+    padding: 10px;
+    margin: 6px 10px 8px;
+    overflow: hidden;
+}
+
+#recipe .brsn p {
+    color: #0d8c43 !important;
+    text-decoration: none;
+}
+
+#recipe #list {
+    float: right;
+    width: 714px;
+}
+#recipe #list ul li img {
+    margin: 0 0 19px;
+}
+
+.only_sp {
+    display: none !important;
+}
+/* main content end */
+
+/* SEARCH FORM */
+.search-form{
+    width: 100%;
+    margin: 1rem auto;
+    text-align: center;
+}
+.search-btn{
+    color: #fff;
+    background-color: #97BF0D;
+    /* -webkit-box-shadow: 1px 2px 4px 0px rgba(153, 153, 153, 0.45); 
+    box-shadow: 1px 2px 4px 0px rgba(153, 153, 153, 0.45); */
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 6px;
+    padding: 6px 20px;
+}
+.search-input{
+    padding: 6px 20px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 6px;
+}
+h4.err{
+    color: #d83f2b;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* SEARCH FORM END */
+
+/* RECIPE LIST PAGE ---------------------------------------------------- */
+
+
+/* SINGLE RECIPE */
+#recipe #detail {
+    float: right;
+    width: 610px;
+    margin-right: 50px;
+    font-size: 12px;
+    line-height: 1.6em;
+}
+#recipe #detail .mainPhoto {
+    background: url(../img/base_detail_img.png) top left no-repeat;
+    width: 552px;
+    padding: 17px 17px 0;
+    margin: 0px;
+    overflow: hidden;
+}
+#recipe #detail .mainTitle {
+    background: url(../img/base_detail_txt.png) bottom left no-repeat;
+    width: 522px;
+    padding: 14px 32px 30px;
+    margin: 0 0 20px;
+}
+#recipe #detail .dtlExp {
+    margin-left: 17px;
+}
+#recipe #detail .dtlExp h5 {
+    font-size: 17px;
+    color: #97bf0d;
+    margin: 0 0 12px;
+    font-weight: normal;
+}
+.sline {
+    width: 980px;
+    margin: 10px auto 20px;
+}
+#section {
+    position: relative;
+    clear: both;
+    width: 890px;
+    margin: 0 auto 20px;
+}
+#recipe .backtop {
+    clear: none;
+    width: 183px;
+    margin: 0 auto;
+}
+#section a {
+    font-size: inherit;
+    color: #666666;
+    text-decoration: none;
+}
+.brsn, .brsn a {
+    color: #0d8c43 !important;
+    text-decoration: none;
+}
+#recipe #detail .mainTitle h4 {
+    text-align: left;
+    font-size: 18px;
+}
+#recipe #detail .mainTitle p {
+    text-align: right;
+    font-size: 12px;
+}
+#recipe #detail .dtlExp span {
+    color: #999999;
+}
+#recipe #detail .dtlExp p {
+    font-size: 12px;
+    line-height: 1.6em;
+}
+#recipe .prdbtn {
+    width: 500px;
+    margin: 20px auto;
+}
+#recipe #detail .dtlExp ul li {
+    list-style-type: disc !important;
+    line-height: 1.6em;
+    margin-left: 17px;
+}
+::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+}
+/* SINGLE RECIPE END */
+
+/* footer */
+#foot {
+    position: relative;
+    clear: both;
+    width: 100%;
+    height: 66px;
+    margin: 0 auto;
+    padding: 10px 0 0;
+    border-top: 1px solid #eee;
+    overflow: hidden;
+}
+#foot .inner {
+    clear: both;
+    width: 980px;
+    height: 66px;
+    margin: 0 auto;
+    padding: 10px 0 0;
+}
+
+#foot .copys {
+    float: left;
+    margin: 5px 0 0;
+    font-size: 12px;
+    line-height: 1.8em;
+    color: #666666;
+}
+#foot .p-top {
+    float: right;
+    width: 44px;
+}
+
+
+
+
+
+/* ============================================================== */
+
+/* For ipads */
+@media screen and (max-width: 1024px) {
+  .nav-links {
+    width: 60%;
+  }
+}
+
+/* for phones */
+@media screen and (max-width: 768px) {
+  body {
+    /* overflow-x: hidden; function stops a scroll bar from happeing(check transform: translateX(100%) */
+    overflow-x: hidden;
+  }
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 5vh;
+    background: rgba(255, 255, 255, 0.7);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 60%;
+    /* transform: translateX(%) this function makes the element/container move directionaly(% based)X is horizontal.  */
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  .nav-links li {
+    opacity: 0;
+  }
+  .burger {
+    display: block;
+  }
+/* nav end */
+
+/* content */
+.header{
+    display: none;
+}
+p.breadcrumbs, .header .prodNav {
+    display: none;
+}
+ul#recipe {
+    clear: both;
+    width: 100%;
+    padding: 10px 0 0;
+}
+#recipe h2 {
+    background: none;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0 0 10px;
+    display: block;
+}
+#content {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+p.breadcrumbs{
+    clear: both;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #eee;
+    font-size: 12px;
+    color: #666666;
+    padding: 5px 0;
+}
+p.breadcrumbs a:first-child {
+    margin-left: 20px;
+}
+.line {
+    width: 100%;
+    margin: 20px auto;
+}
+.banner {
+    width: 300px;
+    margin: 20px auto 0;
+    padding: 0 0 20px;
+}
+ul#recipe li.tops {
+float: left;
+    width: 48%;
+    background: url(../img/base_pickup_sp.png) top left no-repeat;
+    padding: 0px;
+    margin: 0 1% 1%;
+    background-size: 100% auto;
+}
+ul#recipe li.tops p.wht {
+    padding: 5% 0 4.3% 5px;
+}
+ul#recipe li.tops p {
+    font-size: x-small;
+    line-height: 1.2em;
+    color: #999;
+    padding: 8% 0 1% 5px;
+    font-weight: normal;
+}
+ul#recipe li {
+    float: left;
+    width: 48%;
+    background: url(../img/base_top_sp.png) top left no-repeat;
+    padding: 0px;
+    margin: 0 1% 1%;
+    background-size: 100% auto;
+}
+ul#recipe li p {
+    font-size: x-small;
+    line-height: 1.2em;
+    color: #0d8c43 !important;
+    padding: 7.2% 0 2.5% 5px;
+    font-weight: bold;
+}
+#foot {
+    position: relative;
+    clear: both;
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    padding: 10px 0 15px;
+    border-top: 1px solid #eee;
+    overflow: hidden;
+}
+#foot .inner {
+    clear: both;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 0 0;
+}
+
+#foot .copys {
+    float: left;
+    margin: 5px 0 0;
+    font-size: 10px;
+    line-height: 1.8em;
+    color: #666666;
+}
+#foot .p-top {
+    float: right;
+    width: 34px;
+}
+
+/* RECIPE CONTENT */
+#recipe {
+    width: 100%;
+    margin: 0 auto 10px;
+    background: #fff;
+    border: none;
+    text-align: center;
+}
+#recipe h2 {
+    background: none;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0 0 10px;
+    display: block;
+}
+#recipe h2 img {
+    width: 100%;
+    display: block;
+    padding: 10px 0 0;
+}
+.only_pc {
+    display: none !important;
+}
+#recipe #sidenav{
+  display: none;
+}
+#recipe .inner {
+    width: 100%;
+    background: #fff;
+    border: none;
+    padding: 10px 0 0;
+}
+#recipe #list {
+    width: 100%;
+    background: #ebebeb;
+    padding: 10px 0;
+}
+
+.title h3{
+  display: none;
+}
+#recipe #list ul li {
+    float: left;
+    width: 48%;
+    background: url(../img/base_recipe_sp.png) top left no-repeat;
+    height: auto;
+    margin: 5px 1%;
+    padding: 0 0 5px;
+    background-size: 100% auto;
+}
+#recipe #list ul li p {
+    text-align: left;
+    font-size: xx-small;
+    line-height: 1.2em;
+    padding: 3px 0 3px 5px;
+    font-weight: bold;
+    width: 80%;
+}
+
+}
+/* media query end */
+
+
+
+
+
+/* a (class)-active is a psuedo-class that represents a element(like a button) that activates some code by the user*/
+.nav-active {
+  transform: translateX(0%);
+  /* brings my sidebar back to starting position */
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* Transform HAMBURGER TO X */
+.sam .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.sam .line2 {
+  opacity: 0;
+}
+.sam .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
