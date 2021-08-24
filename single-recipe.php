@@ -1,5 +1,5 @@
     <?php
-    //include('./includes/class-autoload.inc.php');
+    include('./includes/class-autoload.inc.php');
     require_once('./templates/header.php');
     ?>
 
@@ -13,76 +13,96 @@
             <img src="./img/listImage.png" width="100%" alt="bel recipe">
         </h2>
 
-
+        <!-- php ID content -->
         <div class="inner">
-            <div class="title">
-                <h3>
-                    <!-- change php echo title -->
-                    ひとくちチキン南蛮　ブルサンタルタルソースかけ
-                </h3>
-                <p>
-                    ブランド:
-                    <span class="dot_blue">●</span>
-                    キリ&emsp;
-                    <span class="dot_red">●</span>
-                    ベルキューブ&emsp; 
-                    <span class="dot_green">●</span>
-                    ブルサン
-                </p>
-            </div>
-
-            <h2 style="text-align: center; color: red;">SINGLE PAGE</h2>
-
-            <div id="sidenav">
-                <!-- <img src="./img/sidebar.svg" alt=""> -->
-            </div>
-
             <!-- page main content -->
             <!-- Display all ブルサン(color=Green) items -->
-            <div id="detail">
-                <div class="mainPhoto">
-                    <!-- need to echo db image_ref here -->
-                    <img src="./img/0712.jpg" alt="photo" width="100%">
-                </div>
 
-                <div class="mainTitle">
-                    <!-- need to echo db name here -->
-                    <h4 class="brsn">● ひとくちチキン南蛮　ブルサンタルタルソースかけ</h4>
-                    <p>2～3人分</p>
-                </div>
-                <div class="dtlExp">
-                    <h5>材料</h5>
-                    <!-- need to echo db ingredients here -->
-                    <p>Lorem ipsum dolor,<br> sit amet consectetur adipisicing elit. <br>Reprehenderit, necessitatibus.</p>
-                    <br>
+            <?php $con = new Single();
+            // print_r($con->getRecipe());
+            // die;
+            ?>
 
-                    <h5>作り方</h5>
-                    <span>＜下ごしらえ＞</span>
-                    <!-- need to echo db process here -->
-                    <ul>
-                        <li> Lorem ipsum dolor sit.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                    </ul>
 
-                    <br>
+            <?php if ($con->singleRecipe()) : ?>
+                <?php foreach ($con->singleRecipe() as $row) : ?>
+                    <div class="title">
+                        <h3>
+                            <!-- change php echo title -->
+                            <?= $row['name']; ?>
+                        </h3>
+                        <p>
+                            ブランド:
+                            <span class="dot_blue">●</span>
+                            キリ&emsp;
+                            <span class="dot_red">●</span>
+                            ベルキューブ&emsp; 
+                            <span class="dot_green">●</span>
+                            ブルサン
+                        </p>
+                    </div>
 
-                    <span>＜手順＞</span>
-                    <ol>
-                        <li>Lorem ipsum dolor sit.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                        <li>Lorem ipsum dolor sit.</li>
-                    </ol>
+                    <h2 style="text-align: center; color: red;">SINGLE PAGE</h2>
 
-                    <p class="prdbtn">
-                        <a href="#">
-                            <img src="./img/btn_brsn1.png" alt="" width="100%">
-                        </a>
-                    </p>
-                </div>
-            </div>
+                    <div id="sidenav">
+                        <!-- <img src="./img/sidebar.svg" alt=""> -->
+                    </div>
+
+                    <div id="detail">
+                        <div class="mainPhoto">
+                            <!-- need to echo db image_ref here -->
+                            <img src="./img/<?= $row['image_ref_lrg']; ?>" alt="photo" width="100%">
+                        </div>
+
+                        <div class="mainTitle">
+                            <!-- need to echo db name here -->
+                            <h4 class="brsn">● <?= $row['name']; ?></h4>
+                            <p><?= $row['serves']; ?></p>
+                        </div>
+                        <div class="dtlExp">
+                            <h5>材料</h5>
+                            <!-- need to echo db ingredients here -->
+                            <?= $row['ingredients']; ?>
+                            <br><br>
+
+                            <h5>作り方</h5>
+                            <span>＜下ごしらえ＞</span>
+                            <!-- need to echo db process here -->
+                            <ul>
+                                <li><?= $row['process_1-1']; ?></li>
+                                <li><?= $row['process_1-2']; ?></li>
+                                <li><?= $row['process_1-3']; ?></li>
+                                <li><?= $row['process_1-4']; ?></li>
+                                <li><?= $row['process_1-5']; ?></li>
+                                <li><?= $row['process_1-6']; ?></li>
+                            </ul>
+
+                            <br>
+
+                            <span>＜手順＞</span>
+                            <ol>
+                                <li><?= $row['process_2-1']; ?></li>
+                                <li><?= $row['process_2-2']; ?></li>
+                                <li><?= $row['process_2-3']; ?></li>
+                                <li><?= $row['process_2-4']; ?></li>
+                                <li><?= $row['process_2-5']; ?></li>
+                                <li><?= $row['process_2-6']; ?></li>
+                            </ol>
+
+                            <p class="prdbtn">
+                                <a href="#">
+                                    <img src="./img/btn_brsn1.png" alt="" width="100%">
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <p>Nothing to display</p>
+            <?php endif; ?>
             <!-- end detail -->
+
+            <!-- bottom area -->
             <div class="sline">
                 <img src="./img/sline.gif" width="100%" alt="">
             </div>

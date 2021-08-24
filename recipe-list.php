@@ -8,7 +8,7 @@
 
 
     <?php
-    require_once('./templates/recipe-list-template.php')
+    require_once('./templates/test-recipe-list-template.php')
     ?>
 
 

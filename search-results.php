@@ -46,41 +46,24 @@ require_once('./templates/header.php');
         <!-- SEARCH FUNCTION -->
         <div id="list">
             <ul id="recipe" class="clearfix">
-                <?php
-
-                $con = new PDO("mysql:host=localhost;dbname=bel-recipe;port=3307;", 'root', '');
-                // Get the seach keyword
-                if (isset($_POST['submit'])) {
-                    $str = $_POST["search"];
-                    $sth = $con->prepare("SELECT * FROM `recipe` WHERE name LIKE '%$str%' OR process LIKE '%$str%' OR ingredients LIKE '%$str%'");
-
-                    $sth->setFetchMode(PDO::FETCH_OBJ);
-                    $sth->execute();
-
-
-                    // <!-- THIS IS WHERE THE RESULTS ARE SHOWN -->
-                    // <!-- page main content -->
-                    if ($row = $sth->fetchAll(PDO::FETCH_ASSOC)) {
-                        // print_r($row);
-                        // die;
-                        foreach ($row as $val) {
-                ?>
-                            <li class="brsn">
-                                <!-- need to echo link to corresponding page -->
-                                <a href="#">
-                                    <img src="./img/recipe-img/<?= $val['image_ref']; ?>" width="100%" alt="">
-                                    <p style="min-height: 38px;"><?php echo $val['name']; ?></p>
-                                </a>
-                            </li>
-                <?php
-                        }
-                    } else {
-
-                        echo "<h3 class='err'>Nothing Found.</h3>";
-                    }
-                }
+                <?php $con = new Search();
+                // print_r($con->searchRecipe());
+                // die;
                 ?>
 
+                <?php if ($con->searchRecipe()) : ?>
+                    <?php foreach ($con->searchRecipe() as $val) : ?>
+                        <li class="brsn">
+                            <!-- need to echo link to corresponding page -->
+                            <a href="single-recipe.php?id=<?= $val['id']; ?>">
+                                <img src="./img/recipe-img/<?= $val['image_ref']; ?>" width="100%" alt="">
+                                <p style="min-height: 38px;"><?php echo $val['name']; ?></p>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <p>Nothing to display</p>
+                <?php endif; ?>
             </ul>
         </div>
         <!-- SEARCH FUNCTION END -->

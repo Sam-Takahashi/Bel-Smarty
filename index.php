@@ -6,6 +6,7 @@ require_once('templates/header.php');
 
 
 <!-- Recipe-Template -->
+<h1 style="text-align: center; color: red;">Metis Test Site</h1>
 <?php
 require_once('templates/recipe-template.php')
 ?>

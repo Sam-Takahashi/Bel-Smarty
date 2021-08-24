@@ -1,3 +1,7 @@
+<?php
+include('./includes/class-autoload.inc.php');
+// require_once('./templates/header.php');
+?>
 <!--Content Body -->
 <div id="recipe" class="clearfix">
     <h2 class="only_pc">
@@ -42,42 +46,25 @@
         <!-- Display all ブルサン(color=Green) items -->
         <div id="list">
             <ul>
-                <?php
-                try {
-                    $con = new PDO("mysql:host=localhost;dbname=bel-recipe;port=3307;", 'root', '');
-                    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                } catch (PDOException $e) {
-                    echo $e->getMessage();
-                }
-
-                // $sql = $con->prepare("SELECT * FROM `recipe` WHERE category=?");
-                $category = "brsn";
-                $sql = "SELECT * FROM recipe WHERE category=?";
-                $res = $con->prepare($sql);
-
-                $res->bindParam(1, $category);
-                $res->execute();
-
-                if ($row = $res->fetchAll(PDO::FETCH_ASSOC)) {
-                    // print_r($row);
-                    // die;
-                    foreach ($row as $val) {
+                <?php $con = new Recipe(); 
+                // print_r($con->getRecipe());
+                // die;
                 ?>
+                
+
+                <?php if ($con->getRecipe()) : ?>
+                    <?php foreach ($con->getRecipe() as $val) : ?>
                         <li class="brsn">
                             <!-- need to echo link to corresponding page -->
-                            <a href="single-recipe.php">
+                            <a href="single-recipe.php?id=<?= $val['id']; ?>">
                                 <img src="./img/recipe-img/<?= $val['image_ref']; ?>" width="100%" alt="">
                                 <p style="min-height: 38px;"><?php echo $val['name']; ?></p>
                             </a>
                         </li>
-                <?php
-                    }
-                } else {
-
-                    echo "<h3 class='err'>Nothing Found.</h3>";
-                }
-
-                ?>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <p>Nothing to display</p>
+                <?php endif; ?>
             </ul>
         </div>
 
