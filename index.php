@@ -1,20 +1,26 @@
 <?php
-include('includes/class-autoload.inc.php');
-require_once('templates/header.php');
-?>
-<!-- header fin -->
+
+require('./includes/smartyHeader.php');
+
+$title = 'Bel Smarty | Bel Japon';
+$smarty->assign('title', $title);
+
+// ================================================
 
 
-<!-- Recipe-Template -->
-<h1 style="text-align: center; color: red;">Metis Test Site</h1>
-<?php
-require_once('templates/recipe-template.php')
-?>
+//  ================================================
+
+// ================================================
+// ================================================
+// ================================================
+// ================================================
+// smarty footer ================================================
 
 
-<!-- content(class) -->
 
+// smarty DISPLAYS ================================================
 
-<?php
-require_once('templates/footer.php')
-?>
+$smarty->display('header.tpl');
+//$smarty->display('search-form.tpl');
+$smarty->display('recipe-template.tpl');
+$smarty->display('footer.tpl');
